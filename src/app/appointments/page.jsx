@@ -1,18 +1,15 @@
+import AppointmentCard from '@/components/AppointmentCard';
 import AppointmentHeader from '@/components/AppointmentHeader';
+import { fetchAppointments } from '@/lib/appointments/data';
 import { Button } from '@heroui/react';
 import { BookOpen, Filter } from 'lucide-react';
 import React from 'react';
 import { FaUserDoctor } from 'react-icons/fa6';
 
-const fetchAppointments = async () => {
-  const res = await fetch (`${process.env.NEXT_PUBLIC_API_URL}/appointment`);
-  const data = res.json();
-  return data || [];
-}
 
-const AppointmentPage = async () => {
-  const appointment = await fetchAppointments();
-  console.log(appointment);
+const AppointmentsPage = async () => {
+  const appointments = await fetchAppointments();
+  // console.log(appointments);
   
   return(
      <div className="min-h-screen bg-slate-50">
@@ -34,9 +31,11 @@ const AppointmentPage = async () => {
                     </Button>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    
-                </div>
+         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+          {
+            appointments?.map((appointment) => <AppointmentCard key={appointment._id } appointment={appointment} />)
+          }
+        </div>
 
 
             </main>
@@ -45,4 +44,4 @@ const AppointmentPage = async () => {
   );
 };
 
-export default AppointmentPage;
+export default AppointmentsPage;
