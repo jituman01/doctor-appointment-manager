@@ -5,8 +5,43 @@ import { Button, Input } from '@heroui/react';
 import Link from 'next/link';
 import { User, Mail, Lock, ArrowRight } from 'lucide-react';
 import { FcGoogle } from 'react-icons/fc';
+import toast from 'react-hot-toast';
+import { authClient } from '@/lib/auth-client';
+import { useRouter } from 'next/navigation';
+
 
 const RegisterPage = () => {
+  const router = useRouter();
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    // console.log(e.currentTarget);
+    
+    const formData = new FormData(e.currentTarget);
+    // console.log(formData);
+    const signupData = Object.fromEntries(formData.entries())
+    // console.log(signupData);
+    
+
+    const { data, error } = await authClient.signUp.email({
+      ...signupData,
+      
+    })
+
+    if (error) {
+      // console.log(error.message);
+      
+      toast.error('Registration failed')
+      return;
+    }
+    router.push('/')
+
+    
+  }
+
+
+
+
   return (
      <div className="min-h-[80vh] flex flex-col bg-slate-50 py-2">
             <div className="grow flex items-center justify-center p-4">
@@ -21,7 +56,7 @@ const RegisterPage = () => {
                             <p className="text-slate-500 font-medium">Create your account to explore doctor</p>
                         </div>
 
-                        <form
+                        <form onSubmit={handleSignup}
                             className="space-y-6"
                         >
                             <div className="space-y-2">

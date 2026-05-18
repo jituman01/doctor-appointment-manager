@@ -7,16 +7,27 @@ import { BookOpen, Menu, X, User, LogOut, LayoutDashboard } from 'lucide-react';
 import Link from 'next/link';
 import { Avatar, Button } from '@heroui/react';
 import Image from 'next/image';
+import { signOut, useSession } from '@/lib/auth-client';
+import { useRouter } from 'next/navigation';
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const router = useRouter();
+  const { data: session, isPending } = useSession();
+  console.log(session);
+  
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleLogOut = async () => {
+    await signOut();
+    router.push('/')
+  }
 
   return (
     <nav
@@ -42,30 +53,32 @@ export function Navbar() {
           <div className="hidden md:flex gap-8 items-center">
             <Link
               href="/"
-              className="font-medium text-slate-700 hover:text-blue-600 transition-colors"
+              className="font-medium text-slate-700 hover:text-blue-600 "
             >
               Home
             </Link>
             <Link
               href="/appointments"
-              className="font-medium text-slate-700 hover:text-blue-600 transition-colors"
+              className="font-medium text-slate-700 hover:text-blue-600 "
             >
               All Appointment
             </Link>
   
             <Link
               href="/dashboard"
-              className="font-medium text-slate-700 hover:text-blue-600 transition-colors"
+              className="font-medium text-slate-700 hover:text-blue-600 "
             >
               Dashboard
             </Link>
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <>
+            {
+              !isPending && !session ?
+                <>
               <Link
                 href="/login"
-                className="font-medium text-slate-700 hover:text-blue-600 transition-colors"
+                className="font-medium text-slate-700 hover:text-blue-600 "
               >
                 Login
               </Link>
@@ -76,43 +89,36 @@ export function Navbar() {
                 >
                   Register
                 </Button>
-              </Link>
-            </>
+                  </Link>
+                  
+                </> :
 
-            <div className="relative group">
-              <button className="flex items-center gap-3 p-1 rounded-full hover:bg-muted transition-colors border border-transparent hover:border-border">
+                <div className="relative group flex gap-2">
+              <div>               
                 <Avatar>
-                <Avatar.Image alt="John Doe" src="https://img.heroui.chat/image/avatar?w=400&h=400&u=3" />
-               <Avatar.Fallback>JD</Avatar.Fallback>
-               </Avatar>
-      
-                <div className="text-left hidden lg:block">
-                  <p className="text-sm font-bold truncate max-w-25">
-                    
-                  </p>
-                  <p className="text-[10px] text-slate-500">Student</p>
-                </div>
-              </button>
-              <div className="absolute right-0 top-12 w-56 bg-white border border-slate-200 rounded-2xl shadow-2xl hidden group-hover:flex flex-col py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                
-                <Link
-                  href="/dashboard"
-                  className="px-4 py-2 text-sm hover:bg-muted flex items-center gap-3 transition-colors"
-                >
-                  <LayoutDashboard className="w-4 h-4" /> Dashboard
-                </Link>
-               
-                <button className="px-4 py-2 text-sm text-red-500 hover:bg-red-50 flex items-center gap-3 transition-colors text-left">
-                  <LogOut className="w-4 h-4" /> Log Out
+                <Avatar.Image alt="John Doe" src={session?.user?.image} />
+               <Avatar.Fallback>{session?.user?.name?.charAt(0) }</Avatar.Fallback>
+               </Avatar>             
+                  </div>
+                  
+              <div>
+                <button variant='outline'
+                onClick={handleLogOut}  className="px-4 py-2 text-sm  hover:bg-red-50 flex items-center gap-3  text-left cursor-pointer border rounded-full">
+                  <LogOut className="w-4 h-4 cursor-pointer" /> Log Out
                 </button>
               </div>
+              
             </div>
+            }
+
+            
+
           </div>
 
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg hover:bg-muted transition-colors"
+              className="p-2 rounded-lg hover:bg-muted "
             >
               {isMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -125,38 +131,61 @@ export function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className="md:hidden px-4 pt-2 pb-6 space-y-2 bg-white border-b border-slate-200 animate-in slide-in-from-top duration-300">
-          <Link
-            href="/"
-            className="block px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl"
-          >
-            Home
-          </Link> 
-          <Link
-            href="/dashboard"
-            className="block px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl"
-          >
-            Dashboard
-          </Link>
-          <div className="pt-4 border-t border-border mt-4">
-            <div className="grid grid-cols-2 gap-4">
-              <Link href="/login">
-                <Button href="/login" variant="bordered" className="rounded-xl">
-                  Login
-                </Button>
-              </Link>
-              
-            </div>
+{isMenuOpen && (
+  <div className="md:hidden  space-y-2 bg-transparent   border-b border-slate-200 animate-in slide-in-from-top duration-500">
+    <Link
+      href="/"
+      onClick={() => setIsMenuOpen(false)}
+      className="block px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl "
+    >
+      Home
+    </Link>
+    <Link
+      href="/appointments"
+      onClick={() => setIsMenuOpen(false)}
+      className="block px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl "
+    >
+      All Appointment
+    </Link>
+    <Link
+      href="/dashboard"
+      onClick={() => setIsMenuOpen(false)}
+      className="block px-4 py-3 text-base font-medium text-slate-900 hover:bg-slate-50 rounded-xl "
+    >
+      Dashboard
+    </Link>
 
-            <div className="flex flex-col gap-2">
-              <button className="block w-full text-left px-4 py-3 text-base font-medium text-red-500 hover:bg-red-50 rounded-xl">
-                Log Out
-              </button>
-            </div>
-          </div>
+    <div className="pt-4 border-t border-slate-100 mt-4">
+      {!isPending && !session ? (
+        <div className="grid grid-cols-2 gap-3">
+          <Link href="/login" onClick={() => setIsMenuOpen(false)} className="w-full">
+            <Button variant="bordered" className="w-full h-11 font-bold rounded-xl border-slate-200 text-slate-700">
+              Login
+            </Button>
+          </Link>
+          <Link href="/register" onClick={() => setIsMenuOpen(false)} className="w-full">
+            <Button color="primary" className="w-full h-11 font-bold rounded-xl bg-blue-600 text-white shadow-md shadow-blue-600/10">
+              Register
+            </Button>
+          </Link>
+        </div>
+      ) : (
+        <div className="space-y-4">
+
+          <button
+            onClick={() => {
+              handleLogOut();
+              setIsMenuOpen(false);
+            }}  
+            className="w-full text-left px-4 py-3 text-base font-bold text-red-500 hover:bg-red-50 rounded-xl cursor-pointer flex items-center gap-3  border border-transparent hover:border-red-100"
+          >
+            <LogOut className="w-5 h-5" /> Log Out
+          </button>
         </div>
       )}
+    </div>
+  </div>
+)}
     </nav>
   );
 }

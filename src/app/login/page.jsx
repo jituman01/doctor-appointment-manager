@@ -7,8 +7,41 @@ import Link from 'next/link';
 import { Mail, Lock, ArrowRight } from 'lucide-react';
 
 import Image from 'next/image';
+import { authClient, signIn } from '@/lib/auth-client';
+import toast from 'react-hot-toast';
 
 const LoginPage = () => {
+
+  const handleLogin = async (e) => {
+      e.preventDefault();
+      // console.log(e.currentTarget);
+      
+      const formData = new FormData(e.currentTarget);
+      // console.log(formData);
+      const loginData = Object.fromEntries(formData.entries())
+      // console.log(loginData);
+      
+  
+      const { data, error } = await signIn.email({
+        ...loginData,
+        callbackURL: '/'
+        
+      })
+  
+      if (error) {
+        // console.log(error.message);
+        
+        toast.error('Registration failed')
+        return;
+      }
+      // router.push('/')
+  
+      
+    }
+
+
+
+
   return (
      <div className="min-h-[80vh] flex flex-col bg-slate-50">
             <div className="flex items-center justify-center p-4">
@@ -25,7 +58,8 @@ const LoginPage = () => {
                             
                         </div>
 
-                        <form
+            <form
+              onSubmit={handleLogin}
                             className="space-y-6"
                         >
                             <div className="space-y-2">
