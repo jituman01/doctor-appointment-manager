@@ -47,7 +47,7 @@ export function Navbar() {
               Home
             </Link>
             <Link
-              href="/courses"
+              href="/appointment"
               className="font-medium text-slate-700 hover:text-blue-600 transition-colors"
             >
               All Appointment
