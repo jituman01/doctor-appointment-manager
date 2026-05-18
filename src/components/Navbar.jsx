@@ -74,7 +74,7 @@ export function Navbar() {
                   color="primary"
                   className="font-bold rounded-full px-8 shadow-lg shadow-blue-600/20"
                 >
-                  SignUp
+                  Register
                 </Button>
               </Link>
             </>
@@ -88,7 +88,7 @@ export function Navbar() {
       
                 <div className="text-left hidden lg:block">
                   <p className="text-sm font-bold truncate max-w-25">
-                    Nazmus Sakib
+                    
                   </p>
                   <p className="text-[10px] text-slate-500">Student</p>
                 </div>
