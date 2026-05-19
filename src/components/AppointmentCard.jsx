@@ -8,10 +8,10 @@ const AppointmentCard = ({ appointment }) => {
   const doctorId = appointment?._id || appointment?.id;
 
   return (
-    <div className="w-full bg-white border border-slate-200/80 rounded-2xl p-4 shadow-sm hover:shadow-md hover:border-blue-500/30 duration-300 flex flex-col justify-between group mx-auto max-w-sm">
+    <div className="w-full bg-white backdrop-blur-3xl border border-slate-200/80 rounded-3xl p-4 shadow-sm hover:shadow-md hover:border-blue-500/30 duration-300 flex flex-col justify-between group mx-auto max-w-90">
       <div className="flex flex-col gap-4">
-        <div className="flex flex-col items-center justify-center text-center gap-3">
-          <div className="relative w-full h-44 rounded-xl overflow-hidden bg-slate-100 border border-slate-100 shrink-0 mx-auto">
+        <div className="flex flex-col items-center justify-center text-center gap-3 ">
+          <div className="relative w-full h-60 rounded-xl overflow-hidden bg-slate-100 border border-slate-100 shrink-0 mx-auto">
             <img
               src={appointment?.image }
               
@@ -35,13 +35,9 @@ const AppointmentCard = ({ appointment }) => {
             <h3 className="font-black text-slate-800 text-base md:text-lg group-hover:text-blue-600 transition-colors leading-tight mb-1">
               {appointment?.name}
             </h3>
-            <span className="inline-flex items-center w-fit px-2.5 py-0.5 rounded-md text-xs font-bold bg-blue-50 text-blue-600 mb-1.5">
+            <span className="inline-flex items-center w-fit px-2.5 py-0.5 rounded-md text-xs font-bold bg-blue-50 text-blue-600">
               {appointment?.specialty}
             </span>
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-500">
-              <Award className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-              <span>{appointment?.experience} Experience</span>
-            </div>
           </div>
         </div>
 
@@ -49,7 +45,7 @@ const AppointmentCard = ({ appointment }) => {
           {appointment?.description}
         </p>
 
-        <div className="flex flex-col gap-2 pt-3 border-t border-slate-100 text-xs font-bold text-slate-600">
+        <div className="flex flex-col gap-2 text-xs font-bold text-slate-600">
           <div className="flex items-center gap-2">
             <Building2 className="w-4 h-4 shrink-0 text-green-600" />
             <span className="truncate">{appointment?.hospital}</span>

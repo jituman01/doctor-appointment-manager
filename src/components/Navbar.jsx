@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { FaUserDoctor } from "react-icons/fa6";
 
-import { BookOpen, Menu, X, User, LogOut, LayoutDashboard } from 'lucide-react';
+import { BookOpen, Menu, X, User, LogOut, LayoutDashboard, Stethoscope } from 'lucide-react';
 import Link from 'next/link';
 import { Avatar, Button } from '@heroui/react';
 import Image from 'next/image';
@@ -15,7 +15,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
   const { data: session, isPending } = useSession();
-  console.log(session);
+  // console.log(session);
   
 
   useEffect(() => {
@@ -31,18 +31,15 @@ export function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/70 backdrop-blur-md shadow-sm py-2'
-          : 'bg-slate-50 py-4'
-      }`}
+      className={`sticky top-0 w-full z-50 transition-all duration-300 bg-white/70 backdrop-blur-md shadow-sm py-2`
+        }
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2 group">
               <div className="p-2 bg-blue-600 rounded-xl group-hover:rotate-12 transition-transform">
-                <FaUserDoctor className="w-6 h-6 text-white" />
+                <Stethoscope className="w-6 h-6 text-white" />
               </div>
               <span className="font-extrabold text-2xl tracking-tight text-slate-900">
                 DocAppoint

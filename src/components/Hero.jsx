@@ -1,10 +1,11 @@
 import React from 'react';
 import { Button } from "@heroui/react";
 import { CalendarDays, Search, ShieldCheck, Star } from "lucide-react";
+import Link from 'next/link';
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-b from-blue-50/50 via-white to-white py-16 md:py-24 lg:py-32 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-blue-50/50 via-white to-white py-9 md:py-16 lg:py-20 overflow-hidden">
       
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 -z-10 bg-blue-100/40 w-96 h-96 rounded-full blur-3xl transform translate-x-20 -translate-y-20" />
@@ -33,6 +34,7 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+              <Link href={'/appointments'}>
               <Button 
                 color="primary" 
                 size="lg" 
@@ -41,6 +43,8 @@ export default function Hero() {
                 <CalendarDays size={20} />
                 Book Appointment
               </Button>
+              </Link>
+              
               
               <Button 
                 variant="bordered" 
