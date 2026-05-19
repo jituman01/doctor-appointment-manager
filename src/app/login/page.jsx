@@ -27,6 +27,9 @@ const LoginPage = () => {
         callbackURL: '/'
         
       })
+
+
+      
   
       if (error) {
         // console.log(error.message);
