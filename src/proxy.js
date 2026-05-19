@@ -11,11 +11,12 @@ export async function proxy(request) {
   if (!session && !session?.user) {
     // console.log(request.url, ' proxy');
     
-    return NextResponse.redirect(new URL('/', request.url));
+    return NextResponse.redirect(new URL('/login', request.url));
   }
   
 }
  
 export const config = {
-  matcher: '/appointments/:id',
+  matcher: ['/appointments/:id', "/dashboard"],
+  
 }
