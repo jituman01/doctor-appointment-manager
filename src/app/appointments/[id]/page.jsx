@@ -54,8 +54,8 @@ const DoctorDetailsPage = async ({ params }) => {
       <div className="max-w-5xl mx-auto px-4 mt-3">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-start">
           <div className="lg:col-span-1 grid grid-cols-1 gap-2 sticky lg:top-24">
-            <div className="bg-transparent border border-slate-200/80 rounded-xl p-4 shadow-sm">
-              <div className="relative w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 border border-slate-100">
+            <div className="bg-transparent  rounded-xl p-4 ">
+              <div className="relative w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 border ">
                 <img
                   src={doctor?.image}
                   alt={doctor?.name}
@@ -63,7 +63,7 @@ const DoctorDetailsPage = async ({ params }) => {
                 />
 
                 {doctor?.rating && (
-                  <div className="absolute top-3 right-3 flex items-center gap-1 bg-transparent backdrop-blur-2xl px-3 py-1 rounded-full shadow-md border border-slate-100">
+                  <div className="absolute top-3 right-3 flex items-center gap-1 bg-transparent backdrop-blur-2xl px-3 py-1 rounded-full shadow-md border ">
                     <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
                     <span className="text-sm font-black text-slate-800">
                       {Number(doctor.rating).toFixed(1)}
@@ -72,8 +72,8 @@ const DoctorDetailsPage = async ({ params }) => {
                 )}
               </div>
 
-              <div className="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-slate-100 text-center">
-                <div className="bg-slate-50 p-3 rounded-xl border border-slate-100">
+              <div className="grid grid-cols-2 gap-2 mt-4 text-center">
+                <div className="bg-slate-50 p-3 rounded-xl border ">
                   <Users className="w-4 h-4 text-blue-500 mx-auto mb-1" />
                   <span className="block text-xs font-bold text-slate-400 uppercase">
                     Reviews
@@ -82,7 +82,7 @@ const DoctorDetailsPage = async ({ params }) => {
                     {doctor?.reviewCount || '50+'} Cases
                   </span>
                 </div>
-                <div className="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                <div className="bg-slate-50 p-3 rounded-xl border ">
                   <Award className="w-4 h-4 text-amber-500 mx-auto mb-1" />
                   <span className="block text-xs font-bold text-slate-400 uppercase">
                     Experience
@@ -94,8 +94,8 @@ const DoctorDetailsPage = async ({ params }) => {
               </div>
             </div>
 
-            <div className="bg-transparent border border-slate-200/80 rounded-xl p-6 md:p-4 shadow-sm">
-              <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest mb-4 pb-2 border-slate-100 flex items-center gap-2">
+            <div className="bg-transparent  rounded-xl p-6 md:p-4 ">
+              <h3 className="text-sm font-black text-slate-800 uppercase mb-4 pb-2  flex items-center gap-2">
                 <span className=" rounded-full block">
                   <Brain />
                 </span>{' '}
@@ -108,9 +108,9 @@ const DoctorDetailsPage = async ({ params }) => {
           </div>
 
           <div className="lg:col-span-2 flex flex-col gap-2">
-            <div className="bg-transparent border border-slate-200/80 rounded-xl p-2 md:p-4 shadow-sm">
-              <div className="flex flex-wrap items-center gap-2 mb-3">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-blue-600 border border-blue-100/50">
+            <div className="bg-transparent rounded-xl p-2 md:p-4 ">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-blue-600 ">
                   <Stethoscope className="w-3.5 h-3.5" /> {doctor?.specialty}
                 </span>
               </div>
@@ -125,8 +125,8 @@ const DoctorDetailsPage = async ({ params }) => {
               </p>
             </div>
 
-            <div className="bg-transparent border border-slate-200/80 rounded-xl p-6 md:p-4 shadow-sm flex flex-col gap-5">
-              <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest pb-2 border-slate-100 flex items-center gap-2">
+            <div className="bg-transparent  rounded-xl p-6 md:p-4  flex flex-col gap-2">
+              <h3 className="text-sm font-black text-slate-800 uppercase pb-2  flex items-center gap-2">
                 <span className=" rounded-full block">
                   <Compass />
                 </span>{' '}
@@ -135,7 +135,7 @@ const DoctorDetailsPage = async ({ params }) => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="flex items-start gap-3.5 text-sm">
-                  <div className="w-9 h-9 bg-emerald-50 rounded-xl flex items-center justify-center shrink-0 border border-emerald-100/50">
+                  <div className="w-9 h-9 bg-emerald-50 rounded-xl flex items-center justify-center ">
                     <Building2 className="w-5 h-5 text-emerald-600" />
                   </div>
                   <div>
@@ -149,7 +149,7 @@ const DoctorDetailsPage = async ({ params }) => {
                 </div>
 
                 <div className="flex items-start gap-3.5 text-sm">
-                  <div className="w-9 h-9 bg-red-50 rounded-xl flex items-center justify-center shrink-0 border border-red-100/50">
+                  <div className="w-9 h-9 bg-red-50 rounded-xl flex items-center justify-center">
                     <MapPin className="w-5 h-5 text-red-500" />
                   </div>
                   <div>
@@ -164,13 +164,13 @@ const DoctorDetailsPage = async ({ params }) => {
               </div>
 
               {doctor?.availability && doctor.availability.length > 0 && (
-                <div className="flex flex-col gap-3  p-4 rounded-2xl border border-slate-100/80 mt-2">
+                <div className="flex flex-col gap-3  p-4 mt-2">
                   <div className="flex items-center gap-2 text-sm font-bold text-slate-700">
                     <Calendar className="w-4 h-4 text-blue-500" /> Visiting
                     Timeline Slots
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs md:text-sm font-bold mt-1">
-                    <div className="bg-transparent p-3 rounded-xl border border-slate-200/50 flex items-center gap-2.5">
+                    <div className="bg-transparent p-3 rounded-xl flex items-center gap-2.5">
                       <Clock className="w-4 h-4 text-slate-400" />
                       <span className="text-slate-500">
                         Days:{' '}
@@ -180,7 +180,7 @@ const DoctorDetailsPage = async ({ params }) => {
                       </span>
                     </div>
                     {doctor.availability[1] && (
-                      <div className="bg-transparent p-3 rounded-xl border border-slate-200/50 flex items-center gap-2.5">
+                      <div className="bg-transparent p-3 rounded-xl flex items-center gap-2.5">
                         <Clock className="w-4 h-4 text-slate-400" />
                         <span className="text-slate-500">
                           Time:{' '}
@@ -195,7 +195,7 @@ const DoctorDetailsPage = async ({ params }) => {
               )}
             </div>
 
-            <div className="bg-white border border-slate-200/80 rounded-xl p-6 shadow-sm flex flex-col gap-4">
+            <div className="bg-transparent  rounded-xl flex flex-col gap-4">
               <div>
                 <span className="text-[11px] font-bold text-slate-400 uppercase  block mb-0.5">
                   Total Consultation Fee

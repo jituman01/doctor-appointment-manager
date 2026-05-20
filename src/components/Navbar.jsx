@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { Avatar, Button } from '@heroui/react';
 import Image from 'next/image';
 import { signOut, useSession } from '@/lib/auth-client';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
 export function Navbar() {
@@ -31,6 +31,9 @@ export function Navbar() {
     router.push('/')
   }
 
+  const pathname = usePathname();
+  const isActive = (path) => pathname === path;
+
   return (
     <nav
       className={`sticky top-0 w-full z-50 transition-all duration-300 bg-white/70 backdrop-blur-md shadow-sm py-2`
@@ -39,11 +42,16 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="p-2 bg-blue-600 rounded-xl transition-transform">
-                <Stethoscope className="w-6 h-6 text-white" />
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className=" transition-transform">
+                
+                <img 
+                src="/logo2.png" 
+                alt="DocAppoint Logo" 
+                className="w-10 h-auto"
+                />
               </div>
-              <span className="font-extrabold text-2xl tracking-tight text-slate-900">
+              <span className="font-extrabold text-2xl tracking-tight text-black">
                 DocAppoint
               </span>
             </Link>
@@ -52,20 +60,20 @@ export function Navbar() {
           <div className="hidden md:flex gap-8 items-center">
             <Link
               href="/"
-              className="font-medium text-slate-700 hover:text-blue-600 "
+              className={isActive('/') ? "text-blue-600  border border-gray-100 rounded-full px-3 py-2 shadow-md shadow-blue-200 font-semibold" : "text-gray-600 "}
             >
               Home
             </Link>
             <Link
               href="/appointments"
-              className="font-medium text-slate-700 hover:text-blue-600 "
+              className={isActive('/appointments') ? "text-blue-600  border border-gray-100 rounded-full px-3 py-2 shadow-md shadow-blue-200 font-semibold" : "text-gray-600"}
             >
               All Appointment
             </Link>
   
             <Link
               href="/dashboard"
-              className="font-medium text-slate-700 hover:text-blue-600 "
+              className={isActive('/dashboard') ? "text-blue-600  border border-gray-100 rounded-full px-3 py-2 shadow-md font-semibold" : "text-gray-600 "}
             >
               Dashboard
             </Link>
@@ -77,7 +85,7 @@ export function Navbar() {
                 <>
               <Link
                 href="/login"
-                className="font-medium text-slate-700 hover:text-blue-600 "
+                className={isActive('/') ? "text-blue-600 font-bold" : "text-gray-600"}
               >
                 Login
               </Link>

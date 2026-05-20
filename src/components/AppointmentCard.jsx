@@ -16,7 +16,7 @@ const AppointmentCard = ({ appointment }) => {
               src={appointment?.image }
               
               alt={appointment?.name || 'Doctor'}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 mx-auto"
+              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300 mx-auto"
               
               
             />
@@ -89,3 +89,12 @@ const AppointmentCard = ({ appointment }) => {
 };
 
 export default AppointmentCard;
+
+
+
+
+
+
+
+
+
