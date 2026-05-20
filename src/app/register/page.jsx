@@ -13,32 +13,29 @@ import { useRouter } from 'next/navigation';
 const RegisterPage = () => {
   const router = useRouter();
 
-  const handleSignup = async (e) => {
-    e.preventDefault();
-    // console.log(e.currentTarget);
-    
-    const formData = new FormData(e.currentTarget);
-    // console.log(formData);
-    const signupData = Object.fromEntries(formData.entries())
-    // console.log(signupData);
-    
+ const handleSignup = async (e) => {
+     e.preventDefault();
+     // console.log(e.currentTarget);
 
-    const { data, error } = await authClient.signUp.email({
-      ...signupData,
-      
-    })
+  
+     const formData = new FormData(e.currentTarget);
+     // console.log(formData);
+     const signupData = Object.fromEntries(formData.entries());
+     // console.log(signupData);
 
-    if (error) {
-      // console.log(error.message);
-      
-      toast.error('Registration failed')
-      return;
-    }
-    router.push('/')
+  const signupPromise = authClient.signUp.email({
+    ...signupData,
+  });
 
-    
-  }
+    await toast.promise(signupPromise, {
+      loading: 'Creating Account...',
+      success: <b>Create Account Successfully!</b>,
+      error: (err) => <b>{err.message || 'Registration Failed!'}</b>,
+    });
 
+    router.push('/');
+   
+};
 
 
 

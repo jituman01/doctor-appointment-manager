@@ -9,6 +9,7 @@ import { Avatar, Button } from '@heroui/react';
 import Image from 'next/image';
 import { signOut, useSession } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,6 +27,7 @@ export function Navbar() {
 
   const handleLogOut = async () => {
     await signOut();
+    toast.success('Logged out successfully!');
     router.push('/')
   }
 
@@ -38,7 +40,7 @@ export function Navbar() {
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="p-2 bg-blue-600 rounded-xl group-hover:rotate-12 transition-transform">
+              <div className="p-2 bg-blue-600 rounded-xl transition-transform">
                 <Stethoscope className="w-6 h-6 text-white" />
               </div>
               <span className="font-extrabold text-2xl tracking-tight text-slate-900">

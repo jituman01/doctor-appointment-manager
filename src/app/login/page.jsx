@@ -23,20 +23,18 @@ const LoginPage = () => {
       
   
       const { data, error } = await signIn.email({
-        ...loginData,
-        callbackURL: '/'
+          ...loginData,
+          callbackURL: '/'
         
-      })
+      });
 
-
-      
-  
       if (error) {
         // console.log(error.message);
-        
-        toast.error('Registration failed')
+      toast.error('Login failed')
         return;
       }
+
+      toast.success('Successfully logged in!');
       // router.push('/')
   
       

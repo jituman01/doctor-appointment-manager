@@ -15,7 +15,6 @@ export default function MyBookings({ userEmail, token }) {
           const data = await res.json();
           if (res.ok) setBookings(data);
         } finally {
-          setLoadingBookings(false);
         }
       };
       fetchMyBookings();
@@ -50,17 +49,12 @@ export default function MyBookings({ userEmail, token }) {
 
   const [bookings, setBookings] = useState([]);
 
-  const [loadingBookings, setLoadingBookings] = useState(true);
 
 
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [updateFormData, setUpdateFormData] = useState({patientName: '',phone: '',appointmentDate: '',appointmentTime: '',
   });
-
-  
-
-  if (loadingBookings) return <div className="text-center py-6"><div className="w-6 h-6 border-2 border-blue-600 rounded-full animate-spin mx-auto"></div></div>;
 
   return (
     <div className="grid grid-cols-1 gap-4">
