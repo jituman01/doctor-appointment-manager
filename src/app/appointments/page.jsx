@@ -23,8 +23,11 @@ const AppointmentsPage = async ({searchParams}) => {
       <main className="max-w-7xl mx-auto px-4 py-7 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center mb-5">
           <h2 className="text-2xl font-bold flex items-center gap-2">
-            <FaUserDoctor className="w-6 h-6 text-blue-600" />
-            All Doctors
+            <img src="/doctor.png"
+              width={30}
+              height={30}
+              alt="" />
+            Our Healthcare Professionals
           </h2>
         </div>
 

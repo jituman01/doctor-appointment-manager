@@ -35,7 +35,7 @@ const AppointmentCard = ({ appointment }) => {
             <h3 className="font-black text-slate-800 text-base md:text-lg group-hover:text-blue-600 transition-colors leading-tight mb-1">
               {appointment?.name}
             </h3>
-            <span className="inline-flex items-center w-fit px-2.5 py-0.5 rounded-md text-xs font-bold bg-blue-50 text-blue-600">
+            <span className="inline-flex items-center w-fit px-2.5 py-0.5 rounded-md text-xs font-bold bg-orange-50 text-orange-400">
               {appointment?.specialty}
             </span>
           </div>

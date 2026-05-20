@@ -60,20 +60,20 @@ export function Navbar() {
           <div className="hidden md:flex gap-8 items-center">
             <Link
               href="/"
-              className={isActive('/') ? "text-blue-600  border border-gray-100 rounded-full px-3 py-2 shadow-md shadow-blue-200 font-semibold" : "text-gray-600 "}
+              className={isActive('/') ? "text-white bg-blue-400  border border-gray-100 rounded-full px-3 py-2 shadow-md shadow-blue-200 font-semibold" : "text-gray-600 "}
             >
               Home
             </Link>
             <Link
               href="/appointments"
-              className={isActive('/appointments') ? "text-blue-600  border border-gray-100 rounded-full px-3 py-2 shadow-md shadow-blue-200 font-semibold" : "text-gray-600"}
+              className={isActive('/appointments') ? "text-white bg-blue-400  border border-gray-100 rounded-full px-3 py-2 shadow-md shadow-blue-200 font-semibold" : "text-gray-600"}
             >
               All Appointment
             </Link>
   
             <Link
               href="/dashboard"
-              className={isActive('/dashboard') ? "text-blue-600  border border-gray-100 rounded-full px-3 py-2 shadow-md font-semibold" : "text-gray-600 "}
+              className={isActive('/dashboard') ? "text-white bg-blue-400  border border-gray-100 rounded-full px-3 py-2 shadow-md font-semibold" : "text-gray-600 "}
             >
               Dashboard
             </Link>
