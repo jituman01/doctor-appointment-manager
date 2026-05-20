@@ -3,7 +3,11 @@ import { useState } from 'react';
 import { Button } from '@heroui/react';
 import BookingModal from './BookingModal';
 
-export default function BookingModalInitializer({ doctorName, token, userEmail }) {
+export default function BookingModalInitializer({
+  doctorName,
+  token,
+  userEmail,
+}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -22,7 +26,7 @@ export default function BookingModalInitializer({ doctorName, token, userEmail }
         onClose={() => setIsModalOpen(false)}
         doctorName={doctorName}
         token={token}
-        userEmail={userEmail} 
+        userEmail={userEmail}
       />
     </>
   );
