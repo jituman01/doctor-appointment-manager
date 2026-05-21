@@ -40,6 +40,12 @@ const LoginPage = () => {
       
     }
 
+    const handleGoogleLogin = async () => {
+        await authClient.signIn.social({
+            provider: "google"
+        })
+    }
+
 
 
 
@@ -116,7 +122,8 @@ const LoginPage = () => {
             </form>
             
             <div className="space-y-4">
-                            <Button
+                          <Button
+                              onClick={handleGoogleLogin}
                                 variant="outline"
                                 className="w-full h-12 font-bold rounded-2xl border-slate-200 hover:bg-slate-50 transition-colors gap-3"
                             >
