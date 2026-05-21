@@ -40,7 +40,15 @@ export default function RootLayout({ children }) {
         
         <Footer />
         <Toaster
-        position="top-right"/>
+  position="top-right"
+  toastOptions={{
+    style: {
+      marginTop: '50px',
+      marginRight: '20px'
+    }
+  }}
+/>
+        
       </body>
     </html>
   );
