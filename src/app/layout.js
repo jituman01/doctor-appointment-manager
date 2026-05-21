@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -15,8 +16,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "DocAppoint",
-  description: "Book your doctor appointments easily",
+  title: {
+    default: 'DocAppoint | Best Doctor Booking',
+    template: '%s | DocAppoint'
+  },
+  description: 'Connect with certified medical experts dedicated to your well-being.',
 };
 
 export default function RootLayout({ children }) {
@@ -35,7 +39,8 @@ export default function RootLayout({ children }) {
         </main>
         
         <Footer />
-        <Toaster />
+        <Toaster
+        position="top-right"/>
       </body>
     </html>
   );

@@ -6,6 +6,25 @@ import Link from 'next/link';
 import React from 'react';
 import BookingModalInitializer from '@/components/BookingModalInitializer';
 
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments/${id}`);
+    const doctor = await res.json();
+    // console.log( doctor);
+    if (!doctor || !doctor?.name) {
+      return { title: 'Doctor Details | DocAppoint' };
+    }
+    return {
+      title: doctor?.name,
+      description: doctor?.description || 'Book your appointment now.'
+    };
+  } catch (error) {
+    return { title: 'Doctor Details | DocAppoint' };
+  }
+}
+
+
 const fetchDoctorDetails = async (id, token) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/appointments/${id}`,

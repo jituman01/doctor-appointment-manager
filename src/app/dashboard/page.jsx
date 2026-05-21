@@ -6,7 +6,14 @@ import MyBookings from '@/components/MyBookings';
 import MyProfile from '@/components/MyProfile'; 
 import { CalendarCheck, UserCircle } from 'lucide-react'; 
 
+
+
 export default function DashboardPage() {
+  //metadata
+  useEffect(() => {
+    document.title = "Dashboard | DocAppoint";
+  }, []);
+
     const [activeTab, setActiveTab] = useState(''); 
 const { data: session, isPending } = useSession();
 

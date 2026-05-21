@@ -9,11 +9,12 @@ import toast from 'react-hot-toast';
 import { authClient } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
 
-
 const RegisterPage = () => {
   const router = useRouter();
 
- const handleSignup = async (e) => {
+    const handleSignup = async (e) => {
+
+        
      e.preventDefault();
      // console.log(e.currentTarget);
 

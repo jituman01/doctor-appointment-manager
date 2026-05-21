@@ -6,6 +6,11 @@ import { BookOpen, Filter } from 'lucide-react';
 import React from 'react';
 import { FaUserDoctor } from 'react-icons/fa6';
 
+export const metadata = {
+  title: 'All Appointments',
+  description: 'Manage and view all your doctor appointments here.',
+};
+
 const AppointmentsPage = async ({searchParams}) => {
   // console.log(searchParams);
   const sParams = await searchParams;
