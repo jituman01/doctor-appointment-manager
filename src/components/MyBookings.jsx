@@ -58,33 +58,47 @@ export default function MyBookings({ userEmail, token }) {
 
   return (
     <div className="grid grid-cols-1 gap-4">
-      {bookings.map(booking => (
-        <div key={booking._id} className="bg-white border p-5 rounded-2xl shadow-sm flex flex-col justify-between">
-          <h3 className="font-bold text-lg mb-3">{booking.doctorName}</h3>
-          <div className="space-y-2 text-sm font-semibold">
-            
-            <div className="flex items-center gap-2"><User className="w-4 h-4" /> {booking.patientName}</div>
-            <div className="flex items-center gap-2"><Phone className="w-4 h-4" /> {booking.phone}</div>
+      {bookings.length === 0 ? (
+        <div className="flex flex-col items-center justify-center py-20 text-center bg-white rounded-2xl border">
+          <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+            <Calendar className="w-8 h-8 text-gray-400" />
+          </div>
+          <h3 className="text-lg font-bold text-gray-700">No Appointments Yet</h3>
+          <p className="text-sm text-gray-500 mt-1">You haven't booked any appointments yet.</p>
+        </div>
+      ) : (
+        bookings.map(booking => (
+          <div key={booking._id} className="bg-white border p-5 rounded-2xl shadow-sm flex flex-col justify-between">
+            <h3 className="font-bold text-lg mb-3">{booking.doctorName}</h3>
+            <div className="space-y-2 text-sm font-semibold">
+              <div className="flex items-center gap-2"><User className="w-4 h-4" />Patient Name: {booking.patientName}</div>
+              <div className="flex items-center gap-2"><Phone className="w-4 h-4" />Phone: {booking.phone}</div>
 
-
-            <div className="flex items-center gap-2 text-xs">
+              <div className="flex items-center gap-2 text-xs">
                 <Calendar className="w-3.5 h-3.5" /> {booking.appointmentDate}
                 <Clock className="w-3.5 h-3.5" /> {booking.appointmentTime}
+              </div>
+            </div>
+            <div className="flex gap-3 mt-5 pt-3 border-t">
+              <Button
+                variant='secondary'
+                onClick={() => { setSelectedBooking(booking); setUpdateFormData(booking); setIsUpdateModalOpen(true); }} 
+                className="flex-1"
+              >
+                <Edit /> Update
+              </Button>
+
+              <Button
+                variant='outline'
+                onClick={() => handleDelete(booking._id)}  
+                className="flex-1 hover:text-red-500"
+              >
+                <Trash2 /> Delete
+              </Button>
             </div>
           </div>
-          <div className="flex gap-3 mt-5 pt-3 border-t">
-
-
-            <Button
-              variant='secondary'
-              onClick={() => { setSelectedBooking(booking); setUpdateFormData(booking); setIsUpdateModalOpen(true); }} className="flex-1"><Edit /> Update</Button>
-
-            <Button
-               variant='outline'
-              onClick={() => handleDelete(booking._id)}  className="flex-1 hover:text-red-500"><Trash2 /> Delete</Button>
-          </div>
-        </div>
-      ))}
+        ))
+      )}
 
       <BookingUpdateModal 
         isOpen={isUpdateModalOpen}
