@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
+import PatientTestimonial from "@/components/PatientTestimonial";
 import Services from "@/components/Services";
 import TopRatedDoctors from "@/components/TopRatedDoctors";
 import Image from "next/image";
@@ -11,7 +12,8 @@ export default function Home() {
       
       <Hero />
       <TopRatedDoctors />
-      <Services/>
+      <Services />
+      <PatientTestimonial/>
     </div>
   );
 }
