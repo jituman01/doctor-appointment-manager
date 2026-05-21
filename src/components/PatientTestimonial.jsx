@@ -5,25 +5,25 @@ import React, { useState } from 'react';
 const testimonials = [
   {
     id: 1,
-    name: 'Maggie Warren',
+    name: 'Diviya Khan',
     role: "Claire's Mom",
     image:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop',
+      'https://i.ibb.co.com/Dg5mQrnr/1c852ea928150dfcf54c5457dbca0a35.jpg',
     review:
       'Staff and doctors are very cooperative and work tirelessly towards a healthy outcome.',
   },
   {
     id: 2,
-    name: 'Max Stewart',
+    name: 'Ayman Rahman',
     role: "Joshua's Dad",
     image:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop',
+      'https://i.ibb.co.com/Hkch0Nw/8d9503a77e4c21ebf0ced6c252819a0e.jpg',
     review:
       'We have been impressed by the hospitality and patient care given by doctors and nurses.',
   },
   {
     id: 3,
-    name: 'Sarah Yo',
+    name: 'Tashfia Khatun',
     role: "John's Mom",
     image:
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=300&auto=format&fit=crop',
@@ -32,16 +32,16 @@ const testimonials = [
   },
   {
     id: 4,
-    name: 'David Miller',
+    name: 'Tasrif Ahmed',
     role: 'Patient',
     image:
-      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=300&auto=format&fit=crop',
+      'https://i.ibb.co.com/BH5K1Pz1/00a50ef41ed3f0a2af6bc21d011c3c1d.jpg',
     review:
       'Amazing support and care from the entire hospital team and staff members.',
   },
   {
     id: 5,
-    name: 'Emma Watson',
+    name: 'Lamiya Sheikh',
     role: 'Patient',
     image:
       'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=300&auto=format&fit=crop',
