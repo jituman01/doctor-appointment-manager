@@ -53,11 +53,3 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
-
-
-
-
-
-
-
-https://i.ibb.co.com/Y4ynNPqB/f2da77ef712e3706644e85eb16d9b5a0.jpg
