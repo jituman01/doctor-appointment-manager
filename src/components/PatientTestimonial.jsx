@@ -8,7 +8,7 @@ const testimonials = [
     name: 'Yamin Khan',
     role: "Claire's Dad",
     image:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop',
+      'https://i.ibb.co.com/Hkch0Nw/8d9503a77e4c21ebf0ced6c252819a0e.jpg',
     review:
       'Staff and doctors are very cooperative and work tirelessly towards a healthy outcome.',
   },
@@ -17,7 +17,7 @@ const testimonials = [
     name: 'Ayman Rahman',
     role: "Joshua's Dad",
     image:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop',
+      'https://i.ibb.co.com/Y4ynNPqB/f2da77ef712e3706644e85eb16d9b5a0.jpg',
     review:
       'We have been impressed by the hospitality and patient care given by doctors and nurses.',
   },
@@ -26,7 +26,7 @@ const testimonials = [
     name: 'Tashfia Khatun',
     role: "John's Mom",
     image:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=300&auto=format&fit=crop',
+      'https://i.ibb.co.com/VYRSygW1/8ab48ee24a4e058c56ac63aa0d163273.jpg',
     review:
       'My heartfelt appreciation to all the doctors and nurses who have done the best.',
   },
@@ -35,7 +35,7 @@ const testimonials = [
     name: 'Tasrif Ahmed',
     role: 'Patient',
     image:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop',
+      'https://i.ibb.co.com/BH5K1Pz1/00a50ef41ed3f0a2af6bc21d011c3c1d.jpg',
     review:
       'Amazing support and care from the entire hospital team and staff members.',
   },
@@ -44,7 +44,7 @@ const testimonials = [
     name: 'Lamiya Sheikh',
     role: 'Patient',
     image:
-      'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=300&auto=format&fit=crop',
+      'https://i.ibb.co.com/pB0NhVnR/2247ecb27fd7d8fb55bdc6c7a6bdb3b3.jpg',
     review:
       'Doctors were very friendly and treatment quality was outstanding.',
   },
