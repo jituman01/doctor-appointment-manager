@@ -1,7 +1,9 @@
-'use client'
+'use client';
+
+import { Suspense } from 'react';
 
 import { Button, Input } from '@heroui/react';
-import { FcGoogle } from "react-icons/fc";
+import { FcGoogle } from 'react-icons/fc';
 import Link from 'next/link';
 
 import { ArrowRight } from 'lucide-react';
@@ -11,22 +13,22 @@ import toast from 'react-hot-toast';
 
 import { useRouter, useSearchParams } from 'next/navigation';
 
-const LoginPage = () => {
-
+const LoginContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
   const redirect = searchParams.get('redirect') || '/';
 
-  const handleLogin = async (e) => {
-      e.preventDefault();
-      // console.log(e.currentTarget);
+  const handleLogin = async e => {
+    e.preventDefault();
+    // console.log(e.currentTarget);
 
     const formData = new FormData(e.currentTarget);
     // console.log(formData);
+
     const loginData = Object.fromEntries(formData.entries());
-      
-      // console.log(loginData);
+
+    // console.log(loginData);
 
     const { data, error } = await signIn.email({
       ...loginData,
@@ -34,30 +36,32 @@ const LoginPage = () => {
     });
 
     if (error) {
-        // console.log(error.message);
+      // console.log(error.message);
+
       toast.error('Login failed');
+
       return;
     }
 
     toast.success('Successfully logged in!');
 
     router.push(redirect);
+
     router.refresh();
-  }
+  };
 
   const handleGoogleLogin = async () => {
     await authClient.signIn.social({
-      provider: "google",
+      provider: 'google',
       callbackURL: redirect,
-    })
-  }
+    });
+  };
 
   return (
     <div className="min-h-[80vh] flex flex-col bg-slate-50">
       <div className="flex items-center justify-center p-4">
         <div className="w-full max-w-md">
           <div className="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-2xl space-y-8 relative overflow-hidden">
-
             {/* Decorative element */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
 
@@ -71,10 +75,7 @@ const LoginPage = () => {
               </p>
             </div>
 
-            <form
-              onSubmit={handleLogin}
-              className="space-y-6"
-            >
+            <form onSubmit={handleLogin} className="space-y-6">
               <div className="space-y-2">
                 <label
                   htmlFor="email"
@@ -146,7 +147,6 @@ const LoginPage = () => {
             <div className="text-center pt-2">
               <p className="text-sm text-slate-500 font-medium">
                 Don’t have an account?{' '}
-
                 <Link
                   href="/register"
                   className="text-blue-600 font-black hover:underline underline-offset-4 transition-all"
@@ -155,11 +155,18 @@ const LoginPage = () => {
                 </Link>
               </p>
             </div>
-
           </div>
         </div>
       </div>
     </div>
+  );
+};
+
+const LoginPage = () => {
+  return (
+    <Suspense fallback={null}>
+      <LoginContent />
+    </Suspense>
   );
 };
 
