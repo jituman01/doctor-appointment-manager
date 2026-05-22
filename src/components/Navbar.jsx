@@ -72,7 +72,7 @@ export function Navbar() {
             </Link>
   
             <Link
-              href="/login?redirect=/dashboard"
+              href="/dashboard"
               className={isActive('/dashboard') ? "text-white bg-blue-400  border border-gray-100 rounded-full px-3 py-2 shadow-md font-semibold" : "text-gray-600 "}
             >
               Dashboard
