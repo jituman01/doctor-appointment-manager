@@ -71,16 +71,8 @@ const AppointmentCard = ({ appointment }) => {
         </div>
 
         <div className="shrink-0">
-          <Link href={`/login?redirect=/appointments/${doctorId}`}>
-            <Button
-              color="primary"
-              endContent={
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              }
-              className="rounded-xl font-bold bg-blue-600 text-white shadow-sm hover:bg-blue-700 px-4 py-1.5 text-sm"
-            >
-              View Details
-            </Button>
+          <Link href={`/appointments/${doctorId}`}>
+          <Button color="primary" endContent={<ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />} className="rounded-xl font-bold bg-blue-600 text-white shadow-sm hover:bg-blue-700 px-4 py-1.5 text-sm" > View Details </Button>
           </Link>
         </div>
       </div>
