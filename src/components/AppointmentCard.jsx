@@ -71,7 +71,7 @@ const AppointmentCard = ({ appointment }) => {
         </div>
 
         <div className="shrink-0">
-          <Link href={`/appointments/${doctorId}`}>
+          <Link href={`/login?redirect=/appointments/${doctorId}`}>
             <Button
               color="primary"
               endContent={
