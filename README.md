@@ -1,7 +1,7 @@
 DocAppointment
 
 ### 📸 Project Preview
-<img src="./docappoint-cover.png" alt="DocAppoint Preview" width="700" />
+<img src="https://i.ibb.co.com/k2mwR8RJ/docappoint-cover.png" alt="DocAppoint Preview" width="700" />
 
 This is a clean and modern hospital services platform designed to help patients easily navigate and discover specialized medical programs. The website provides a clear overview of various departments, from routine check-ups to specialized pediatric care.
 
