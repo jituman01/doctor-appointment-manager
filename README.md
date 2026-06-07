@@ -6,6 +6,7 @@ DocAppointment
 This is a clean and modern hospital services platform designed to help patients easily navigate and discover specialized medical programs. The website provides a clear overview of various departments, from routine check-ups to specialized pediatric care.
 
 Live Site: https://doctor-appointment-manager-lovat.vercel.app
+server side repo: https://github.com/jituman01/doctor-appointment-server
 
 Key Features:
 Intuitive User Interface: A clean and professional design that makes navigating hospital services effortless for patients.
